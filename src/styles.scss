@@ -1,1 +1,31 @@
-/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */ 
+@use '@angular/material' as mat;
+@use '../m3-theme.scss';
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
+
+@include mat.core();
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    @include mat.all-component-themes(m3-theme.$light-theme);
+    @include mat.system-level-colors(m3-theme.$light-theme);
+    @include mat.system-level-typography(m3-theme.$light-theme);
+}
+
+body {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+mat-sidenav {
+    @include mat.all-component-colors(m3-theme.$dark-theme);
+    @include mat.system-level-colors(m3-theme.$dark-theme);
+    @include mat.system-level-typography(m3-theme.$dark-theme);
+}
+
+// @angular/material/prebuilt-themes/rose-red.css

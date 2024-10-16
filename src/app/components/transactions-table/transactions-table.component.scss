@@ -1,0 +1,22 @@
+.table-header {
+    font-size: 1.4em;
+}
+
+.table-data {
+    font-size: 1.15em;
+    background-color: var(--sys-);
+}
+
+.card {
+    background-color: #7a9976;
+}
+
+.btn-delete {
+    color : red;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.btn-delete:hover {
+    transform: scale(1.2);
+}

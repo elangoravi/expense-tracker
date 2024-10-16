@@ -1,0 +1,146 @@
+<form
+  (ngSubmit)="onSubmit()"
+  #addForm="ngForm"
+  class="d-flex flex-column h-100"
+>
+  <h6 mat-dialog-title class="mt-4 mx-2">Add Expense</h6>
+  <mat-dialog-content class="mx-2 d-flex flex-column">
+    <div class="d-flex justify-content-between">
+      <mat-form-field appearance="fill">
+        <mat-label>Amount</mat-label>
+        <input
+          matInput
+          type="number"
+          placeholder="Enter Amount"
+          [(ngModel)]="amount"
+          name="amount"
+          required
+          min="1"
+          #amountFormField="ngModel"
+          step="1"
+        />
+        @if (amountFormField.invalid && (amountFormField.dirty ||
+        amountFormField.touched)) { @if(amountFormField.hasError('min')){
+        <mat-error>Amount must be greater than zero</mat-error>
+        } }
+        <mat-icon matSuffix>{{
+          isSpend() ? "call_received" : "call_made"
+        }}</mat-icon>
+      </mat-form-field>
+      <div class="align-items-start">
+        <mat-button-toggle-group name="expense" [(ngModel)]="type" name="type">
+          <mat-button-toggle value="spend">Spend</mat-button-toggle>
+          <mat-button-toggle value="income">Income</mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
+    </div>
+    <mat-form-field>
+      <mat-label>Choose a date</mat-label>
+      <input matInput [matDatepicker]="picker" [(ngModel)]="date" name="date" />
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>{{ isSpend() ? "Paid to" : "Received from" }}</mat-label>
+      <input
+        matInput
+        placeholder="Ex. Google pay"
+        [(ngModel)]="beneficiary"
+        name="beneficiary"
+      />
+    </mat-form-field>
+    <!-- <mat-form-field>
+      <mat-label>Select Category</mat-label>
+      @if (isSpend()) {
+      <mat-select [(ngModel)]="category" name="category">
+        <mat-option value="Shopping">Shopping</mat-option>
+        <mat-option value="Bills">Bills</mat-option>
+        <mat-option value="Food & Drinks">Food & Drinks</mat-option>
+        <mat-option value="Entertainment">Entertainment</mat-option>
+        <mat-option value="Investment">Investment</mat-option>
+        <mat-option value="Groceries">Groceries</mat-option>
+      </mat-select>
+      } @else {
+      <mat-select [(ngModel)]="category" name="category">
+        <mat-option value="Salary">Salary</mat-option>
+        <mat-option value="To get">To get</mat-option>
+        <mat-option value="Credit">Credit</mat-option>
+        <mat-option value="Bank Deposit">Bank Deposit</mat-option>
+        <mat-option value="Investment">Investment</mat-option>
+      </mat-select>
+      }
+    </mat-form-field> -->
+    @if (isSpend()) {
+    <mat-chip-listbox [(ngModel)]="category" name="category">
+      <mat-chip-option value="Shopping">
+        <mat-icon matChipAvatar>shopping_cart</mat-icon>
+        Shopping
+      </mat-chip-option>
+      <mat-chip-option value="Bills">
+        <mat-icon matChipAvatar>receipt_long</mat-icon>
+        Bills
+      </mat-chip-option>
+      <mat-chip-option value="Food & Drinks">
+        <mat-icon matChipAvatar>restaurant</mat-icon>
+        Food & Drinks
+      </mat-chip-option>
+      <mat-chip-option value="Entertainment">
+        <mat-icon matChipAvatar>hub</mat-icon>
+        Entertainment
+      </mat-chip-option>
+      <mat-chip-option value="Investment">
+        <mat-icon matChipAvatar>savings</mat-icon>
+        Investment
+      </mat-chip-option>
+      <mat-chip-option value="Groceries">
+        <mat-icon matChipAvatar>shopping_basket</mat-icon>
+        Groceries
+      </mat-chip-option>
+    </mat-chip-listbox>
+    } @else {
+    <mat-chip-listbox [(ngModel)]="category" name="category">
+      <mat-chip-option value="Salary">
+        <mat-icon matChipAvatar>payments</mat-icon>
+        Salary
+      </mat-chip-option>
+      <mat-chip-option value="To get">
+        <mat-icon matChipAvatar>currency_exchange</mat-icon>
+        To get
+      </mat-chip-option>
+      <mat-chip-option value="Credit">
+        <mat-icon matChipAvatar>account_balance_wallet</mat-icon>
+        Credit
+      </mat-chip-option>
+      <mat-chip-option value="Bank Deposit">
+        <mat-icon matChipAvatar>account_balance</mat-icon>
+        Bank Deposit
+      </mat-chip-option>
+      <mat-chip-option value="Investment">
+        <mat-icon matChipAvatar>savings</mat-icon>
+        Investment
+      </mat-chip-option>
+    </mat-chip-listbox>
+    }
+  </mat-dialog-content>
+  <mat-dialog-actions class="mx-2 mb-4">
+    <button mat-fab extended mat-dialog-close>
+      <mat-icon>delete</mat-icon>
+      cancel
+    </button>
+    <button
+      mat-fab
+      extended
+      cdkFocusInitial
+      class="ms-4"
+      type="submit"
+      [disabled]="!addForm.valid"
+    >
+      <mat-icon>check</mat-icon>
+      save
+    </button>
+  </mat-dialog-actions>
+</form>

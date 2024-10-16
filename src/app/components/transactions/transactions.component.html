@@ -1,0 +1,23 @@
+<mat-card appearance="raised" class="card overflow-auto">
+  <mat-card-header class="d-flex pb-3">
+    <mat-card-title class="fw-bold fs-5 pt-3">
+      Recent Transactions
+    </mat-card-title>
+    <button mat-fab extended class="btn-align me-5" (click)="openAddDialog()">
+      <mat-icon>add_circle</mat-icon>
+      Add
+    </button>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list>
+      @for (txn of transactions; track txn.id) {
+      <mat-list-item>
+        <app-transaction-item [transaction]="txn"></app-transaction-item>
+        @if (!$last) {
+        <mat-divider [inset]="true" class="ms-4 me-5 my-2"></mat-divider>
+        }
+      </mat-list-item>
+      }
+    </mat-list>
+  </mat-card-content>
+</mat-card>

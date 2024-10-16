@@ -1,0 +1,18 @@
+<div class="container-lg d-flex flex-wrap">
+  @if (transaction.type === 'spend') {
+  <mat-icon [ngStyle]="{ color: 'red' }" class="item-sm">
+    {{ transaction.type | category }}
+  </mat-icon>
+  } @else {
+  <mat-icon [ngStyle]="{ color: 'green' }" class="item-sm">
+    {{ transaction.type | category }}
+  </mat-icon>
+  }
+  <p class="item-lg">{{ transaction.beneficiary }}</p>
+  <p class="item fw-bold">{{ transaction.amount | currency : "INR" }}</p>
+  <mat-icon class="me-2">{{ transaction.category | category }}</mat-icon>
+  <p class="item">{{ transaction.category }}</p>
+  <p class="item-lg">
+    {{ transaction.date | date : "MMM dd, yyyy" }}
+  </p>
+</div>

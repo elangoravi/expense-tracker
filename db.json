@@ -1,0 +1,52 @@
+{
+  "balance": {
+    "expense": 8521,
+    "income": 50000
+  },
+  "category": {
+    "Bank Deposit": 0,
+    "Bills": 0,
+    "Credit": 0,
+    "Entertainment": 0,
+    "Food & Drinks": -2,
+    "Groceries": 0,
+    "Investment": 0,
+    "Salary": 1,
+    "Shopping": 1,
+    "To get": 0
+  },
+  "transactions": [
+    {
+      "id": "a24d",
+      "amount": 50000,
+      "beneficiary": "Temenos",
+      "category": "Salary",
+      "type": "income",
+      "date": "2024-10-01T18:30:00.000Z"
+    },
+    {
+      "id": "8d6c",
+      "amount": 21000,
+      "beneficiary": "Rent",
+      "category": "Bills",
+      "type": "spend",
+      "date": "2024-10-09T18:30:00.000Z"
+    },
+    {
+      "id": "2807",
+      "amount": 450,
+      "beneficiary": "Daily Fresh",
+      "category": "Groceries",
+      "type": "spend",
+      "date": "2024-10-07T18:30:00.000Z"
+    },
+    {
+      "id": "f068",
+      "amount": 500,
+      "beneficiary": "DMart",
+      "category": "Shopping",
+      "type": "spend",
+      "date": "2024-10-11T18:30:00.000Z"
+    }
+  ]
+}

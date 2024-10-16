@@ -1,0 +1,19 @@
+<mat-sidenav-container class="vh-100">
+  <mat-sidenav fixedInViewport opened mode="side" class="sidenav">
+    <mat-toolbar class="fw-bold">finance</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/overview" routerLinkActive="active">
+        Expenses
+      </a>
+      <a mat-list-item routerLink="/analytics" routerLinkActive="active">
+        Analytics
+      </a>
+      <a mat-list-item routerLink="/transactions" routerLinkActive="active">
+        Transactions
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
