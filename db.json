@@ -1,6 +1,6 @@
 {
   "balance": {
-    "expense": 8521,
+    "expense": 8574,
     "income": 50000
   },
   "category": {
@@ -8,7 +8,7 @@
     "Bills": 0,
     "Credit": 0,
     "Entertainment": 0,
-    "Food & Drinks": -2,
+    "Food & Drinks": -1,
     "Groceries": 0,
     "Investment": 0,
     "Salary": 1,
@@ -47,6 +47,14 @@
       "category": "Shopping",
       "type": "spend",
       "date": "2024-10-11T18:30:00.000Z"
+    },
+    {
+      "id": "2934",
+      "amount": 53,
+      "beneficiary": "Breakfast",
+      "category": "Food & Drinks",
+      "type": "spend",
+      "date": "2024-10-21T07:25:55.806Z"
     }
   ]
 }

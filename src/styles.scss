@@ -16,6 +16,7 @@ body {
     @include mat.all-component-themes(m3-theme.$light-theme);
     @include mat.system-level-colors(m3-theme.$light-theme);
     @include mat.system-level-typography(m3-theme.$light-theme);
+    --card-background : var(--sys-surface-container);
 }
 
 body {

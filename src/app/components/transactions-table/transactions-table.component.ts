@@ -12,12 +12,14 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { DeletetransactionComponent } from '../deletetransaction/deletetransaction.component';
+import { AddtransactionComponent } from '../addtransaction/addtransaction.component';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-transactions-table',
   standalone: true,
   imports: [MatTableModule, MatCardModule, DatePipe, CurrencyPipe, CategoryPipe, MatIcon,
-    MatSortModule, CdkDrag, CdkDropList, FaIconComponent, MatDialogModule
+    MatSortModule, CdkDrag, CdkDropList, FaIconComponent, MatDialogModule, MatButtonModule
   ],
   templateUrl: './transactions-table.component.html',
   styleUrl: './transactions-table.component.scss'
@@ -68,6 +70,26 @@ export class TransactionsTableComponent implements OnInit {
     dialogRef.afterClosed().subscribe((deleted: boolean) => {
       if (deleted) {
         this.onDelete(transaction);
+      }
+    });
+  }
+
+  onAdd(transaction: Transaction): void {
+    this.txnService.addTransaction(transaction).subscribe((txn) => {
+      this.transactions.unshift(txn);
+      this.dataSource.data = this.transactions;
+    });
+  }
+
+  openAddDialog() {
+    const dialogRef = this.dialog.open(AddtransactionComponent, {
+      height: '600px',
+      width: '600px',
+    });
+
+    dialogRef.afterClosed().subscribe((transaction) => {
+      if (transaction !== '' && transaction !== undefined) {
+        this.onAdd(transaction);
       }
     });
   }

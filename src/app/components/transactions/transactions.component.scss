@@ -1,7 +1,16 @@
-.btn-align {
-    margin-left: auto;
-}
-
 .card {
     height: 450px;
+    background-color: var(--card-background);
+}
+
+.list-item {
+    height : 75px;
+}
+
+.mat-divider {
+    margin-left: 0 !important;
+}
+
+.arrow {
+    font-size: 20px;
 }

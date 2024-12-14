@@ -4,6 +4,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-home',
@@ -16,8 +17,9 @@ import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
     RouterOutlet,
     RouterLink,
     RouterLinkActive,
+    MatIcon
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-export class HomeComponent {}
+export class HomeComponent { }

@@ -1,11 +1,31 @@
-.item {
-    width: 20%;
-}
-
 .item-sm {
-    width: 10%;
+    width: 25%;
 }
 
 .item-lg {
-    width: 20%;
+    width: 30%;
+    p {
+        margin-bottom: 0.3em;   
+    }
+}
+
+.category {
+    font-size: 40px;
+    border: 1px solid black;
+    padding: 8px;
+    width: auto;
+    border-radius: 100%;
+}
+
+.expense {
+    font-size: 18px;
+    width: auto;
+}
+
+.item-xxg {
+    width: 40%;
+}
+
+.beneficiary {
+    font-size: 1.1em;
 }

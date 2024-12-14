@@ -1,22 +1,25 @@
 .table-header {
-    font-size: 1.4em;
+    font-size: 1.2em;
+    background-color: var(--card-background);
 }
 
 .table-data {
     font-size: 1.15em;
-    background-color: var(--sys-);
+    background-color: var(--card-background);
 }
 
 .card {
-    background-color: #7a9976;
+    background-color: var(--card-background);
 }
 
 .btn-delete {
+    display : block;
     color : red;
     cursor: pointer;
     transition: transform 0.3s ease;
+    font-size: 18px;
 }
 
 .btn-delete:hover {
-    transform: scale(1.2);
+    transform: rotate(0.1turn);
 }

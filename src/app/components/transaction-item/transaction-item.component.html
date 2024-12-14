@@ -1,18 +1,17 @@
-<div class="container-lg d-flex flex-wrap">
-  @if (transaction.type === 'spend') {
-  <mat-icon [ngStyle]="{ color: 'red' }" class="item-sm">
-    {{ transaction.type | category }}
-  </mat-icon>
-  } @else {
-  <mat-icon [ngStyle]="{ color: 'green' }" class="item-sm">
-    {{ transaction.type | category }}
-  </mat-icon>
-  }
-  <p class="item-lg">{{ transaction.beneficiary }}</p>
-  <p class="item fw-bold">{{ transaction.amount | currency : "INR" }}</p>
-  <mat-icon class="me-2">{{ transaction.category | category }}</mat-icon>
-  <p class="item">{{ transaction.category }}</p>
-  <p class="item-lg">
-    {{ transaction.date | date : "MMM dd, yyyy" }}
-  </p>
+<div class="d-flex h-100 align-items-center">
+  <div class="item-sm">
+    <mat-icon class="category h-100">{{
+      transaction.category | category
+    }}</mat-icon>
+  </div>
+  <p class="mt-1 beneficiary fst-italic">{{ transaction.beneficiary }}</p>
+  <div class="item-lg ms-auto d-flex flex-column align-items-end">
+    <div class="d-flex h-25 column-gap-2">
+      <p class="fw-bolder" [style.color]=" transaction.type==='spend' ? 'red' : 'green'">{{ transaction.amount | currency : "INR" }}</p>
+      <mat-icon class="expense">{{ transaction.type | category }}</mat-icon>
+    </div>
+    <p class="mb-auto">
+      {{ transaction.date | date : "dd MMM YYYY" }}
+    </p>
+  </div>
 </div>

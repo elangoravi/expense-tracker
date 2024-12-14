@@ -3,13 +3,16 @@
     <mat-toolbar class="fw-bold">finance</mat-toolbar>
     <mat-nav-list>
       <a mat-list-item routerLink="/overview" routerLinkActive="active">
-        Expenses
-      </a>
-      <a mat-list-item routerLink="/analytics" routerLinkActive="active">
-        Analytics
+        <mat-icon matListItemIcon>home</mat-icon>
+        Overview
       </a>
       <a mat-list-item routerLink="/transactions" routerLinkActive="active">
+        <mat-icon matListItemIcon>payments</mat-icon>
         Transactions
+      </a>
+      <a mat-list-item routerLink="/analytics" routerLinkActive="active">
+        <mat-icon matListItemIcon>analytics</mat-icon>
+        Analytics
       </a>
     </mat-nav-list>
   </mat-sidenav>
